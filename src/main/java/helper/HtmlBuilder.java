@@ -1,7 +1,6 @@
-package simple;
+package helper;
 
 import dev.langchain4j.data.message.ChatMessage;
-import helper.MessageFormatter;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
