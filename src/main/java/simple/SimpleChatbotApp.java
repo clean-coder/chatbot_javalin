@@ -13,6 +13,7 @@ import java.util.List;
 
 public class SimpleChatbotApp {
 
+    // global history with all (User and AI messages)
     private static final List<ChatMessage> history = new ArrayList<>();
 
     private static final ChatModel model = OpenAiChatModel.builder()
@@ -20,9 +21,9 @@ public class SimpleChatbotApp {
             .modelName("gpt-4o-mini")
             .build();
 
-    static void main(String[] args) {
+    static void main() {
         Javalin app = Javalin
-                .create()
+                .create(config -> config.staticFiles.add("/public"))
                 .start(7070);
 
         app.get("/", SimpleChatbotApp::buildPage);
