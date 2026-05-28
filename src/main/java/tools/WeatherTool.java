@@ -13,7 +13,7 @@ public class WeatherTool {
     private static Logger logger = org.slf4j.LoggerFactory.getLogger(WeatherTool.class);
 
     @Tool("Get weather forecast for a specified city.")
-    public String get_forecast(String city) {
+    public String getForecast(String city) {
         Map<String, String> forecasts = new HashMap<>();
         forecasts.put("Paris", "Temperature: 28°C, Conditions: Sunny, Wind: 10 km/h");
         forecasts.put("Stockholm", "Temperature: 12°C, Conditions: Rainy, Wind: 15 km/h");
