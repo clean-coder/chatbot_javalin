@@ -13,7 +13,7 @@ public class HtmlBuilder {
     private static final String PAGE_TEMPLATE = loadTemplate();
 
     private static String loadTemplate() {
-        try (var stream = HtmlBuilder.class.getResourceAsStream("/simple/chat.html")) {
+        try (var stream = HtmlBuilder.class.getResourceAsStream("/chat.html")) {
             return new String(stream.readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new UncheckedIOException("Failed to load chat.html template", e);

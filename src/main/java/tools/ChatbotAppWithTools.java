@@ -9,6 +9,7 @@ import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.service.AiServices;
 import dev.langchain4j.service.SystemMessage;
+import helper.HtmlBuilder;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
@@ -53,7 +54,7 @@ public class ChatbotAppWithTools {
 
     static void main(String[] args) {
         Javalin app = Javalin
-                .create()
+                .create(config -> config.staticFiles.add("/"))
                 .start(7070);
 
         app.get("/", ChatbotAppWithTools::buildPage);

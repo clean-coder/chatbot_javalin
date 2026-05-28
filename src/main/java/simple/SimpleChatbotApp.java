@@ -24,7 +24,7 @@ public class SimpleChatbotApp {
 
     static void main() {
         Javalin app = Javalin
-                .create(config -> config.staticFiles.add("/public"))
+                .create(config -> config.staticFiles.add("/"))
                 .start(7070);
 
         app.get("/", SimpleChatbotApp::buildPage);
