@@ -3,8 +3,6 @@ package tools;
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.ChatMessage;
 import dev.langchain4j.data.message.UserMessage;
-import dev.langchain4j.memory.ChatMemory;
-import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.openai.OpenAiChatModel;
 import dev.langchain4j.service.AiServices;
@@ -19,7 +17,6 @@ import java.util.List;
 public class ChatbotAppWithTools {
     // for rendering in the ui only
     private static final List<ChatMessage> history = new ArrayList<>();
-    private static ChatMemory memory = MessageWindowChatMemory.withMaxMessages(10);
 
     private static final String SYSTEM_PROMPT = """
             You are a helpful travel assistant. 
@@ -48,7 +45,6 @@ public class ChatbotAppWithTools {
 
     private static Assistant assistantWithWeatherTool = AiServices.builder(Assistant.class)
             .chatModel(model)
-            .chatMemory(memory)
             .tools(new WeatherTool())
             .build();
 
